@@ -1,0 +1,24 @@
+{
+    "name": "nielspeen/freescout-custom-app",
+    "description": "",
+    "authors": [
+        {
+            "name": "Niels Peen",
+            "email": "hello@nielspeen.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\CustomApp\\Providers\\CustomAppServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CustomApp\\": ""
+        }
+    }
+}
