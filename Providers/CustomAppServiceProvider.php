@@ -56,9 +56,10 @@ class CustomAppServiceProvider extends ServiceProvider
 
         \Eventy::addAction('conversation.after_prev_convs', function ($customer, $conversation, $mailbox) {
             $url = \Option::get('customapp.callback_url')[(string)$mailbox->id] ?? '';
+            $title = \Option::get('customapp.title')[(string)$mailbox->id] ?? 'Custom App';
 
             if ($url != '') {
-                echo \View::make(self::MODULE_NAME . '::partials/sidebar', [])->render();
+                echo \View::make(self::MODULE_NAME . '::partials/sidebar', ['title' => $title])->render();
             }
         }, -1, 3);
     }

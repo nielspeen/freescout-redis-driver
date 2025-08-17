@@ -18,6 +18,8 @@ class CustomAppController extends Controller
             'settings' => [
                 'customapp.callback_url' => \Option::get('customapp.callback_url')[(string)$id] ?? '',
                 'customapp.secret_key' => \Option::get('customapp.secret_key')[(string)$id] ?? '',
+                'customapp.signature_header' => \Option::get('customapp.signature_header')[(string)$id] ?? 'X-FREESCOUT-SIGNATURE',
+                'customapp.title' => \Option::get('customapp.title')[(string)$id] ?? '',
             ],
             'mailbox' => $mailbox
         ]);
@@ -32,9 +34,13 @@ class CustomAppController extends Controller
 
         $urls[(string)$id] = $settings['customapp.callback_url'] ?? '';
         $secrets[(string)$id] = $settings['customapp.secret_key'] ?? '';
+        $signatureHeaders[(string)$id] = $settings['customapp.signature_header'] ?? 'X-FREESCOUT-SIGNATURE';
+        $titles[(string)$id] = $settings['customapp.title'] ?? '';
 
         \Option::set('customapp.callback_url', $urls);
         \Option::set('customapp.secret_key', $secrets);
+        \Option::set('customapp.signature_header', $signatureHeaders);
+        \Option::set('customapp.title', $titles);
 
         \Session::flash('flash_success_floating', __('Settings updated'));
 
@@ -69,6 +75,8 @@ class CustomAppController extends Controller
 
         $callbackUrl = \Option::get('customapp.callback_url')[(string)$mailbox->id] ?? '';
         $secretKey = \Option::get('customapp.secret_key')[(string)$mailbox->id] ?? '';
+        $signatureHeader = \Option::get('customapp.signature_header')[(string)$mailbox->id] ?? 'X-FREESCOUT-SIGNATURE';
+        $title = \Option::get('customapp.title')[(string)$mailbox->id] ?? 'Custom App';
 
         if (!$callbackUrl) {
             return response()->json(['status' => 'error', 'msg' => 'Callback URL is not set']);
@@ -91,8 +99,7 @@ class CustomAppController extends Controller
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Accept' => 'text/html',
-                    'X-HELPSCOUT-SIGNATURE' => $signature,
-                    'X-FREESCOUT-SIGNATURE' => $signature,
+                    $signatureHeader => $signature,
                 ],
                 'body' => $content,
             ]);
