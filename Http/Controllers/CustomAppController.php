@@ -54,15 +54,20 @@ class CustomAppController extends Controller
 
     public function content(Request $request)
     {
+        if(!auth()->check()) {
+            return response()->json(['status' => 'error', 'msg' => 'Unauthorized']);
+        }
+
         $referrer = $request->headers->get('referer');
 
         if ($referrer) {
             $referrer = explode('?', $referrer)[0];
         }
-        if (!is_array($referrerParts = explode('/', $referrer)) || !isset($referrerParts[4])) {
-            return redirect('/');
-        }
         
+        if (!is_array($referrerParts = explode('/', $referrer)) || !isset($referrerParts[4])) {
+            return response()->json(['status' => 'error', 'msg' => 'Invalid referrer']);
+        }
+
         $conversationId = $referrerParts[4] ?? null;
 
         if(!$conversation = Conversation::find($conversationId)) {
