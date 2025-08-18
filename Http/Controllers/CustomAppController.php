@@ -59,8 +59,12 @@ class CustomAppController extends Controller
         if ($referrer) {
             $referrer = explode('?', $referrer)[0];
         }
-        $conversationId = $referrer ? explode('/', $referrer)[4] : null;
+        if (!is_array($referrerParts = explode('/', $referrer)) || !isset($referrerParts[4])) {
+            return redirect('/');
+        }
         
+        $conversationId = $referrerParts[4] ?? null;
+
         if(!$conversation = Conversation::find($conversationId)) {
             return response()->json(['status' => 'error', 'msg' => 'Conversation not found']);
         }
