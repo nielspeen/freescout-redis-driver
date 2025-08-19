@@ -29,7 +29,7 @@ In PhpRedisConnection.php line 271:
                                                                                                                                            
 ```
 
-This does not appear to affect normal operation.
+You may also see it in your App Logs. This does not appear to affect normal operation. I hope FreeScout can update the relevant files to make them compatible with PHP 8.
 
 ## Verify
 
