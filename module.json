@@ -20,7 +20,7 @@
         "start.php"
     ],
     "requires": [],
-    "img": "/modules/redisdriver/redisdriver.png",
+    "img": "https://raw.githubusercontent.com/nielspeen/freescout-redis-driver/refs/heads/main/Public/redisdriver.png",
     "latestVersionUrl": "https://raw.githubusercontent.com/nielspeen/freescout-redis-driver/refs/heads/main/module.json",
     "latestVersionZipUrl": "https://github.com/nielspeen/freescout-redis-driver/archive/refs/heads/main.zip"
    
