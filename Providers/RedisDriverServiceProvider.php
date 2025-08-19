@@ -11,7 +11,6 @@ class RedisDriverServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        // RedisOverrideService::override();
         $this->app->booting(function () {
             RedisOverrideService::override();
         });

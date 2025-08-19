@@ -1,6 +1,6 @@
 # FreeScout Redis Driver
 
-Enable Redis caching for FreeScout. 
+Enable Redis caching and queues for FreeScout. 
 
 Inspired by #[4650](https://github.com/freescout-help-desk/freescout/issues/4650).
 
@@ -19,8 +19,23 @@ Inspired by #[4650](https://github.com/freescout-help-desk/freescout/issues/4650
   ```
 * Activate the Redis Driver module.
 * Run php artisan ```freescout:clear-cache```.
+
+Depending on your PHP version, you may see this warning when clearing the cache:
+```
+In PhpRedisConnection.php line 271:
+                                                                                                                                           
+  Illuminate\Redis\Connections\PhpRedisConnection::pipeline(): Implicitly marking parameter $callback as nullable is deprecated, the expl  
+  icit nullable type must be used instead                                                                                                  
+                                                                                                                                           
+```
+
+This does not appear to affect normal operation.
+
+## Verify
+
+You may start ```redis-cli``` and run ```KEYS freescout:*``` to check that the redis cache is being used.
   
 ## FAQ
 
-* Why phpredis?
+* Why phpredis, not predis?
   Using phpredis requires us to install a driver in PHP only. This removes the maintenance burden that comes with adding predis to FreeScout.
