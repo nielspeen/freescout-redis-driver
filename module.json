@@ -1,26 +1,27 @@
 {
-    "name": "Custom App",
-    "alias": "customapp",
-    "description": "Custom App allows you to pull in external data to your Conversations.",
-    "version": "1.0.2",
+    "name": "Redis Driver",
+    "alias": "redisdriver",
+    "description": "Redis Driver for FreeScout.",
+    "version": "1.0.0",
     "requiredAppVersion": "1.8.190",
-    "detailsUrl": "https://github.com/nielspeen/freescout-custom-app",
+    "detailsUrl": "https://github.com/nielspeen/freescout-redis-driver",
     "author": "Niels Peen",
     "authorUrl": "https://github.com/nielspeen",
     "license": "AGPL-3.0",
     "keywords": ["custom", "app", "external", "data"],
     "active": 1,
     "order": 0,
+    "priority": -10000,
     "providers": [
-        "Modules\\CustomApp\\Providers\\CustomAppServiceProvider"
+        "Modules\\RedisDriver\\Providers\\RedisDriverServiceProvider"
     ],
     "aliases": {},
     "files": [
         "start.php"
     ],
     "requires": [],
-    "img": "/modules/customapp/customapp.png",
-    "latestVersionUrl": "https://raw.githubusercontent.com/nielspeen/freescout-custom-app/refs/heads/main/module.json",
-    "latestVersionZipUrl": "https://github.com/nielspeen/freescout-custom-app/archive/refs/heads/main.zip"
+    "img": "/modules/redisdriver/redisdriver.png",
+    "latestVersionUrl": "https://raw.githubusercontent.com/nielspeen/freescout-redis-driver/refs/heads/main/module.json",
+    "latestVersionZipUrl": "https://github.com/nielspeen/freescout-redis-driver/archive/refs/heads/main.zip"
    
 }

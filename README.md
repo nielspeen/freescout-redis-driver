@@ -1,8 +1,26 @@
-# FreeScout Custom App 
+# FreeScout Redis Driver
 
-* Similar to Helpscout's Legacy App feature.
-* Fetches HTML from an external source to show in the sidebar of your conversations. 
+Enable Redis caching for FreeScout. 
 
-# Limitations
+Inspired by #[4650](https://github.com/freescout-help-desk/freescout/issues/4650).
 
-* Allows for only 1 Custom App per Mailbox
+## Installation
+
+* Ensure Redis server is installed.
+* Ensure **phpredis** (not predis) driver for PHP is installed. (Both PHP-FPM and the PHP cli!)
+* Double-check your Redis settings in ```config/database.php```. It must use **phpredis**, not predis.
+* Add to your .env: 
+  ```
+  CACHE_DRIVER=redis
+  CACHE_PREFIX=freescout
+  QUEUE_DRIVER=redis
+  # Session drivers in FreeScout appear to be broken or incompatible with PHP 8. Only file and database drivers work.
+  # SESSION_DRIVER=redis
+  ```
+* Activate the Redis Driver module.
+* Run php artisan ```freescout:clear-cache```.
+  
+## FAQ
+
+* Why phpredis?
+  Using phpredis requires us to install a driver in PHP only. This removes the maintenance burden that comes with adding predis to FreeScout.

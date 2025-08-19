@@ -1,5 +1,5 @@
 {
-    "name": "nielspeen/freescout-custom-app",
+    "name": "nielspeen/freescout-redis-driver",
     "description": "",
     "authors": [
         {
@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\CustomApp\\Providers\\CustomAppServiceProvider"
+                "Modules\\RedisDriver\\Providers\\RedisDriverServiceProvider"
             ],
             "aliases": {
             }
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\CustomApp\\": ""
+            "Modules\\RedisDriver\\": ""
         }
     }
 }
