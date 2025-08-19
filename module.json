@@ -2,17 +2,23 @@
     "name": "Custom App",
     "alias": "customapp",
     "description": "Custom App allows you to pull in external data to your Conversations.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "requiredAppVersion": "1.8.190",
     "detailsUrl": "https://github.com/nielspeen/freescout-custom-app",
     "author": "Niels Peen",
+    "authorUrl": "https://github.com/nielspeen",
+    "license": "AGPL-3.0",
+    "keywords": ["custom", "app", "external", "data"],
+    "active": 1,
+    "order": 0,
     "providers": [
         "Modules\\CustomApp\\Providers\\CustomAppServiceProvider"
     ],
-    "requires": [],
+    "aliases": {},
     "files": [
         "start.php"
     ],
+    "requires": [],
     "img": "/modules/customapp/customapp.png",
     "latestVersionUrl": "https://raw.githubusercontent.com/nielspeen/freescout-custom-app/refs/heads/main/module.json",
     "latestVersionZipUrl": "https://github.com/nielspeen/freescout-custom-app/archive/refs/heads/main.zip"
