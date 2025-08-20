@@ -7,7 +7,7 @@ Inspired by #[4650](https://github.com/freescout-help-desk/freescout/issues/4650
 ## Installation
 
 * Ensure Redis server is installed.
-* Ensure **phpredis** (not predis) driver for PHP is installed. (Both PHP-FPM and the PHP cli!)
+* Ensure **phpredis** (not predis) module for PHP is installed. (Both PHP-FPM and the PHP cli!)
 * Double-check your Redis settings in ```config/database.php```. It must use **phpredis**, not predis.
 * Add to your .env: 
   ```
