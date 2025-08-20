@@ -20,16 +20,14 @@ Inspired by #[4650](https://github.com/freescout-help-desk/freescout/issues/4650
 * Activate the Redis Driver module.
 * Run php artisan ```freescout:clear-cache```.
 
-Depending on your PHP version, you may see this warning when clearing the cache:
-```
-In PhpRedisConnection.php line 271:
-                                                                                                                                           
-  Illuminate\Redis\Connections\PhpRedisConnection::pipeline(): Implicitly marking parameter $callback as nullable is deprecated, the expl  
-  icit nullable type must be used instead                                                                                                  
-                                                                                                                                           
-```
+## PHP Warning! 
+When using PHP 8.4 you will see deprecation warnings, even when you have those disabled! 
+This will interfere with your mail fetching!
 
-You may also see it in your App Logs. This does not appear to affect normal operation. I hope FreeScout can update the relevant files to make them compatible with PHP 8.
+This is a bug specific to PHP 8.4:
+https://github.com/php/php-src/issues/17422 
+
+Please use PHP 8.1-8.3 or 8.5+.
 
 ## Verify
 
