@@ -4,7 +4,7 @@
     "description": "Redis Driver for FreeScout.",
     "version": "1.0.1",
     "requiredAppVersion": "1.8.191",
-    "detailsUrl": "https://github.com/nielspeen/freescout-redis-driver",
+    "detailsUrl": "https://github.com/nielspeen/RedisDriver",
     "author": "Niels Peen",
     "authorUrl": "https://github.com/nielspeen",
     "license": "AGPL-3.0",
@@ -20,8 +20,8 @@
         "start.php"
     ],
     "requires": [],
-    "img": "https://raw.githubusercontent.com/nielspeen/freescout-redis-driver/refs/heads/main/Public/redisdriver.png",
-    "latestVersionUrl": "https://raw.githubusercontent.com/nielspeen/freescout-redis-driver/refs/heads/main/module.json",
-    "latestVersionZipUrl": "https://github.com/nielspeen/freescout-redis-driver/archive/refs/heads/main.zip"
+    "img": "https://raw.githubusercontent.com/nielspeen/RedisDriver/refs/heads/main/Public/redisdriver.png",
+    "latestVersionUrl": "https://raw.githubusercontent.com/nielspeen/RedisDriver/refs/heads/main/module.json",
+    "latestVersionZipUrl": "https://github.com/nielspeen/RedisDriver/archive/refs/heads/main.zip"
    
 }
